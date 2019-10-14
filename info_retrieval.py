@@ -7,7 +7,7 @@ Email: ypengaw@connect.ust.hk
 Environment: python 3.0 or above
 
 """
-
+import os
 import string
 import math
 import numpy as np
@@ -125,7 +125,7 @@ class InfoRetrieval(object):
 
         if len(self.score) == 0:
             # use synonymic words to alternate the original query word
-            self.get_synonym('synonym.txt')
+            self.get_synonym(os.getcwd() + '/data/' + 'synonym.txt')
             for item in self.synonym:
                 if set(self.query).intersection(set(item)):
                     self.query = list(set(self.query).union(set(item)))
